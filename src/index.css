@@ -1,0 +1,103 @@
+:root {
+  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+  line-height: 1.5;
+  font-weight: 400;
+
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.title_container {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.title_container > button {
+  font-size: 1.2rem;
+  padding: 0.5rem 1rem;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  outline: none;
+  background-color: rgb(24, 164, 24);
+  color: white;
+}
+
+.title_container > button:hover {
+  background-color: limegreen;
+}
+
+.title_container > button:active {
+  transform: scale(0.95);
+}
+
+h1 {
+  font-size: 3.2em;
+  line-height: 1.1;
+}
+
+.app {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.board_container {
+  margin-top: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.board {
+  display: flex;
+  flex-direction: row;
+  gap: 5px;
+}
+
+.tile {
+  border: 1px solid black;
+  width: 50px;
+  height: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-transform: uppercase;
+  font-weight: bolder;
+}
+
+.correct {
+  background-color: lightgreen;
+  border: 1px solid green;
+}
+
+.incorrect {
+  background-color: lightsteelblue;
+}
+
+.matched {
+  background-color: rgb(240, 191, 128);
+}
+
+.game_over {
+  font-size: 1.5rem;
+  font-weight: bold;
+  margin-top: 20px;
+}
+
+.word_of_the_day {
+  color: lightgreen;
+  font-weight: bolder;
+  text-transform: uppercase;
+  text-shadow: 1px 1px 1px green;
+}
