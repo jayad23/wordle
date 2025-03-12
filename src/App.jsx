@@ -1,7 +1,11 @@
 import { useEffect, useState } from "react";
-import Board, { MAX_TILES } from "./components/board";
+import { MAX_TILES } from "./components/board";
 import { Title } from "./components/title";
+import Loading from "./components/loading";
 import { fakeWordleAPI, handleKeyEvaluator } from "./utils";
+import BoardContainer from "./components/board-container";
+import GameOver from "./components/game-over";
+import Instructions from "./components/instructions";
 
 const App = () => {
   const [wordOfTheDay, setWordOfTheDay] = useState("");
@@ -81,42 +85,17 @@ const App = () => {
       </div>
       {
         wordOfTheDay ? (
-          <div className="board_container">
-            {
-              guesses.map((guess, index) => {
-                const key = `${guess}-${index}`;
-                const isCurrentIndex = index === guesses.findIndex(item => item === null);
-                return (
-                  <Board
-                    key={key}
-                    wordOfTheDay={wordOfTheDay}
-                    isFinal={!isCurrentIndex && guess !== null}
-                    guess={isCurrentIndex ? currentGuess : guess ?? ""}
-                  />
-                );
-              })
-            }
-          </div>
+          <BoardContainer guesses={guesses} wordOfTheDay={wordOfTheDay} currentGuess={currentGuess} />
         ) : (
-          <div className="game_over">
-            <h2>Loading...</h2>
-          </div>
+          <Loading />
         )
       }
       {
         gameIsOver.over && (
-          <div className="game_over">
-            {gameIsOver.won ? "You won!" : (
-              <div className="app">
-                You lost. The word of the day was:
-                <div className="word_of_the_day">
-                  {wordOfTheDay}
-                </div>
-              </div>
-            )}
-          </div>
+          <GameOver gameIsOver={gameIsOver} wordOfTheDay={wordOfTheDay} />
         )
       }
+      <Instructions />
     </div>
   );
 };

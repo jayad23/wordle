@@ -76,16 +76,19 @@ h1 {
   font-weight: bolder;
 }
 
-.correct {
+.correct,
+.right-place {
   background-color: lightgreen;
   border: 1px solid green;
 }
 
-.incorrect {
+.incorrect,
+.wrong-choice {
   background-color: lightsteelblue;
 }
 
-.matched {
+.matched,
+.wrong-place {
   background-color: rgb(240, 191, 128);
 }
 
@@ -100,4 +103,29 @@ h1 {
   font-weight: bolder;
   text-transform: uppercase;
   text-shadow: 1px 1px 1px green;
+}
+
+.instructions-container {
+  margin-top: 15px;
+  color: cadetblue;
+  & > h4 {
+    font-size: 1.3rem;
+  }
+  & > ol {
+    margin-top: 8px;
+  }
+}
+
+.wrong-choice,
+.wrong-place,
+.right-place {
+  width: 20px;
+  height: 20px;
+}
+
+.distributed {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  font-weight: bolder;
 }
